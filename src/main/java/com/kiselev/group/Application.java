@@ -5,5 +5,6 @@ public class Application{
     FilmStorage fs = new FilmDBStorage();
     System.out.println(fs.getName());
     System.out.println(fs.getDesc());
+    System.out.println(fs.getRemove());
   }
 }
