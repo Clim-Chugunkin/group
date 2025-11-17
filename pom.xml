@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- В этом теге указана версия объектной модели описания сборки. -->
+    <!-- В настоящее время поддерживается только версия 4.0.0           -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Координаты артефакта, который появится -->
+    <!-- в результате сборки вашего проекта     -->
+    <groupId>com.sergey.kiselev</groupId>
+    <artifactId>group</artifactId>
+    <version>1.0</version>
+
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.30</version>
+          <scope>provided</scope>
+      </dependency>
+    </dependencies>
+
+    <build>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <version>3.6.0</version>
+              <configuration> <!-- раздел настроек плагина -->
+
+                <descriptorRefs> <!-- раздел, в котором перечисляются дескрипторы, описывающие, что и как нужно упаковывать -->
+                  <!-- используем готовый дескриптор в составе плагина, который формирует jar-файл с классами внешних зависимостей -->
+                  <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+
+                <archive> <!-- настройки jar-файла -->
+                  <manifest>
+                      <mainClass> <!-- указываем входную точку приложения -->
+                        com.kiselev.group.Application
+                      </mainClass>
+                  </manifest>
+                </archive>
+              </configuration>
+              <executions> <!-- настраиваем когда плагин будет запускаться -->
+                <execution> <!-- будет только один запуск, поэтому описываем только один элемент execution -->
+                    <phase>package</phase> <!-- плагин будет запускаться в фазе package, которая относится к циклу Default -->
+                    <goals>
+                        <goal>single</goal> <!-- во время фазы package должна отработать цель single, которую предоставляет плагин -->
+                    </goals>
+                </execution>
+              </executions>
+          </plugin>
+      </plugins>
+    </build>
+</project>
