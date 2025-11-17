@@ -10,5 +10,10 @@ public class FilmDBStorage implements FilmStorage{
   public String getDesc(){
     return "This is description";
   }
-  
+
+  @Override
+  public String getPopular(){
+    return "Popular";
+  }
+
 }
