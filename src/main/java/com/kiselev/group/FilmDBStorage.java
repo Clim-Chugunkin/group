@@ -25,4 +25,10 @@ public class FilmDBStorage implements FilmStorage{
   public String getDeleted(){
     return "Deleted";
   }
+
+  @Override
+  public String getNew(){
+    return "New";
+  }
+
 }
