@@ -6,5 +6,6 @@ public interface FilmStorage{
   String getRemove();
   String getPopular();
   String getDeleted();
+  String getSome();
   String getNew();
 }
