@@ -27,6 +27,9 @@ public class FilmDBStorage implements FilmStorage{
   }
 
   @Override
+  public String getSome(){
+    return "Some";
+  }
   public String getNew(){
     return "New";
   }
