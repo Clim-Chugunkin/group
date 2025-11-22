@@ -15,9 +15,14 @@ public class FilmDBStorage implements FilmStorage{
   public String getRemove(){
     return "remove";
   }
-  
+
   @Override
   public String getPopular(){
     return "Popular";
+  }
+
+  @Override
+  public String getDeleted(){
+    return "Deleted";
   }
 }
